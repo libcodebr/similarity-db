@@ -1,4 +1,4 @@
-package search
+package similarity
 
 import (
 	"errors"
@@ -25,14 +25,14 @@ type result struct {
 	Similarity float64
 }
 
-type Search interface {
+type DB interface {
 	Add(document *Document) error
 	Batch(documents []*Document) (err error)
 	Search(query string, lenght int) ([]any, error)
 	Length() int
 }
 
-func New() Search {
+func New() DB {
 	return &db{
 		values: map[string]any{},
 	}
@@ -70,7 +70,7 @@ func (d *db) Batch(documents []*Document) (err error) {
 	return err
 }
 
-// Search searches movies and series
+// DB searches movies and series
 func (d *db) Search(query string, lenght int) ([]any, error) {
 	if query == "" {
 		return nil, ErrQueryIsEmpty

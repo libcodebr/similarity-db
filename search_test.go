@@ -1,4 +1,4 @@
-package search
+package similarity
 
 import (
 	"testing"
