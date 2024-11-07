@@ -1,4 +1,4 @@
-module similarity
+module github.com/libcodebr/similarity-db
 
 go 1.23.2
 
