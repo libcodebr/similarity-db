@@ -14,13 +14,13 @@ The `search` package is a Go library designed for storing and searching document
 Ensure you have Go installed and set up in your environment. Then, add this package to your project:
 
 ```bash
-go get github.com/yourusername/yourproject/search
+go get github.com/libcodebr/similarity-db
 ```
 
 Import it in your Go file:
 
 ```go
-import search "github.com/libcodebr/memory-search"
+import similarity "github.com/libcodebr/similarity-db"
 ```
 
 ## Usage
