@@ -30,6 +30,7 @@ type DB interface {
 	Batch(documents []*Document) (err error)
 	Search(query string, lenght int) ([]any, error)
 	Length() int
+	Clean()
 }
 
 func New() DB {
@@ -116,6 +117,13 @@ func (d *db) Search(query string, lenght int) ([]any, error) {
 
 func (d *db) Length() int {
 	return len(d.values)
+}
+
+func (d *db) Clean() {
+	d.Lock()
+	defer d.Unlock()
+
+	d.values = make(map[string]any)
 }
 
 func calculateSimilarity(title string, query string) (float64, error) {
