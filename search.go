@@ -109,7 +109,7 @@ func (d *db) Search(query string, lenght int) ([]any, error) {
 			break
 		}
 
-		response = append(response, v)
+		response = append(response, v.Value)
 	}
 
 	return response, nil
