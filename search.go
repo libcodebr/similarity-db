@@ -103,13 +103,13 @@ func (d *db) Search(query string, lenght int) ([]any, error) {
 		return results[i].Similarity > results[j].Similarity
 	})
 
-	response := make([]any, lenght)
-	for i, v := range results {
+	var response []any
+	for _, v := range results {
 		if len(response) > lenght {
 			break
 		}
 
-		response[i] = v
+		response = append(response, v)
 	}
 
 	return response, nil
